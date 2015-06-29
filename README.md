@@ -2,18 +2,18 @@
 Next Web builder toolkit
 
 ## Liquorice
-**Sweets's request proxy candy**
+**Request proxy candy**
 
 This proxy was made for CORS requests
 
-### `proxy`
+### proxy
 #### get
 ##### request
-* __url__ — url for request;
-* _method_ — default: `get`. method for request, `get`, `put`, `post`, `delete`;
+* __url__ — request url;
+* _method_ — default: `get`, request method: `get`, `put`, `post`, `delete`;
 * _headers_ — additional request headers;
-* _body_ — body of the request. If method is `get` this will become a query string;
-* _json_ default: false, the same as in settings but for one request.
+* _body_ — request body. If method is `get` then body will become a query string;
+* _json_ default: false, the same as in the settings but applies to this request.
 
 ##### response 
 * __status__ — status of the __original__ response;
