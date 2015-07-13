@@ -6,6 +6,8 @@ Next Web builder toolkit
 
 This proxy was made for CORS requests
 
+---
+
 ### proxy
 #### get
 ##### request
@@ -18,6 +20,8 @@ This proxy was made for CORS requests
 ##### response 
 * __status__ — status of the __original__ response;
 * __body__ — body of the __original__ response;
+
+---
 
 ### Settings
 ```js
