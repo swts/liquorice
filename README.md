@@ -1,8 +1,8 @@
 # Sweets
-Next Web builder toolkit
+Flexible declarative web framework for real-time projects
 
 ## Liquorice
-**Request proxy candy**
+**Request proxy**
 
 This proxy was made for CORS requests
 
@@ -24,12 +24,6 @@ This proxy was made for CORS requests
 ---
 
 ### Settings
-```js
-    this.proxy = {
-        maxRedirects: 10,
-        json: false
-    }
-```
-
+#### proxy
 * __maxRedirects__ — the maximum number of redirects to follow
 * __json__ —  sets `body` but to JSON representation of value and adds `Content-type: application/json` header. Additionally, parses the response body as JSON.
