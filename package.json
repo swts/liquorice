@@ -14,7 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "request": "^2.58.0",
-    "sweets-valid": "^0.0.3",
+    "sweets-valid": "^0.6.0",
     "units": "^0.0.2"
   },
   "repository": {
