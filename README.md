@@ -8,16 +8,15 @@ This proxy was made for CORS requests
 
 ---
 
-### proxy
-#### get
-##### request
+### proxy.call
+#### request
 * __url__ — request url;
-* _method_ — default: `get`, request method: `get`, `put`, `post`, `delete`;
+* _method_ — default: `get`, request method: `get`, `post`;
 * _headers_ — additional request headers;
 * _body_ — request body. If method is `get` then body will become a query string;
 * _json_ default: false, the same as in the settings but applies to this request.
 
-##### response 
+#### response
 * __status__ — status of the __original__ response;
 * __body__ — body of the __original__ response;
 

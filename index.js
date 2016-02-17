@@ -1,10 +1,4 @@
-"use strict";
-let UnitSet = require("units").UnitSet;
+'use strict';
+const proxy = require('./resources/proxy/units');
 
-let proxy = require("./resources/proxy/units");
-
-module.exports = function () {
-	let units = new UnitSet();
-	units.addSet("proxy", proxy());
-	return units;
-};
+module.exports = { proxy };

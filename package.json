@@ -1,6 +1,6 @@
 {
   "name": "sweets-liquorice",
-  "version": "0.6.3",
+  "version": "0.8.0",
   "description": "Request proxy (cross domain requests)",
   "keywords": [
     "future",
@@ -8,14 +8,14 @@
     "framework",
     "sweets",
     "proxy",
+    "mmp",
     "cors"
   ],
   "author": "Alexey Novikov <v@2dubs.com> (http://2dubs.com)",
   "license": "MIT",
   "dependencies": {
-    "request": "^2.58.0",
-    "sweets-valid": "^0.6.0",
-    "units": "^0.0.2"
+    "mmp-errors": "^0.8.0",
+    "request": "^2.58.0"
   },
   "repository": {
     "type": "git",
