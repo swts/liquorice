@@ -1,6 +1,6 @@
 'use strict';
-let Api = require('./api');
-let Controller = require('./controller');
+const Api = require('./api');
+const Controller = require('./controller');
 
 module.exports = function() {
   return {

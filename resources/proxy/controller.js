@@ -11,7 +11,7 @@ Controller.prototype.unitInit = function(units) {
 
 Controller.prototype.call = function(data, cb) {
   let opts = {
-    url: data.url,
+    url: data.uri,
     method: data.method,
     headers: data.headers,
     json: typeof data.json === 'boolean' ? data.json : this.json,
@@ -33,7 +33,7 @@ Controller.prototype.call = function(data, cb) {
     }
 
     let status = response.statusCode;
-    if (status === 200 || status === 201 || status === 204) {
+    if (status >= 200 && status < 300) {
       cb(null, { status: status, body: body });
     } else {
       cb(null, { status: status });

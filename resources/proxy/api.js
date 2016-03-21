@@ -1,5 +1,6 @@
 'use strict';
 const mmphandler = require('mmp-errors').handler;
+
 let Api = function() {};
 
 Api.prototype.unitInit = function(units) {
@@ -10,13 +11,16 @@ Api.prototype.calls = [ 'call' ];
 
 Api.prototype.callSchema = function() {
   return {
-    auth: 'required',
+    auth: {
+      provider: 'user',
+      required: true
+    },
     title: 'Proxy',
     description: 'Http proxy',
     request: {
       type: 'object',
       properties: {
-        url: {
+        uri: {
           type: 'string',
           format: 'uri'
         },
@@ -31,7 +35,7 @@ Api.prototype.callSchema = function() {
         body: { type: 'object' },
         json: { type: 'boolean' }
       },
-      required: [ 'url', 'method' ],
+      required: [ 'uri', 'method' ],
       additionalProperties: false
     }
   }
