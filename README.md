@@ -10,7 +10,7 @@ This proxy was made for CORS requests
 
 ### proxy.call
 #### request
-* __url__ — request url;
+* __uri__ — request uri;
 * _method_ — default: `get`, request method: `get`, `post`;
 * _headers_ — additional request headers;
 * _body_ — request body. If method is `get` then body will become a query string;
@@ -24,5 +24,5 @@ This proxy was made for CORS requests
 
 ### Settings
 #### proxy
-* __maxRedirects__ — the maximum number of redirects to follow
-* __json__ —  sets `body` but to JSON representation of value and adds `Content-type: application/json` header. Additionally, parses the response body as JSON.
+* __followRedirect__ — defines if redirect responses should be followed automatically. Default `true`.
+* __json__ —  sets `body` but to JSON representation of value and adds `Content-type: application/json` header. Additionally, parses the response body as JSON. Default 'false'.

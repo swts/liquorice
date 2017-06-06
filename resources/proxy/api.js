@@ -42,7 +42,17 @@ Api.prototype.callSchema = function() {
 };
 
 Api.prototype.call = function(auth, data, cb) {
-  this.ctrl.call(data, mmphandler(cb));
+  const response = mmphandler(cb);
+  this.ctrl.call(data)
+    .then(res => {
+      let status = res.statusCode;
+      if (status >= 200 && status < 300) {
+        response(null, { status: status, body: res.body });
+      } else {
+        response(null, { status: status });
+      }
+    })
+    .catch(err => response(null, { status: err.statusCode }))
 };
 
 

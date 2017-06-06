@@ -1,44 +1,31 @@
 'use strict';
-let request = require('request');
+const got = require('got');
 
-let Controller = function() {};
+const Controller = function() {};
 
 Controller.prototype.unitInit = function(units) {
-  let settings = units.require('core.settings').proxy || {};
-  this.maxRedirects = settings.maxRedirects;
+  const settings = units.require('core.settings').proxy || {};
+  this.followRedirect = settings.followRedirect;
   this.json = settings.json;
 };
 
-Controller.prototype.call = function(data, cb) {
+Controller.prototype.call = function(data) {
   let opts = {
-    url: data.uri,
     method: data.method,
     headers: data.headers,
     json: typeof data.json === 'boolean' ? data.json : this.json,
-    maxRedirects: this.maxRedirects
+    followRedirect: this.followRedirect
   };
 
   if (data.body) {
     if (opts.method === 'get') {
-      opts.qs = data.body;
+      opts.query = data.body;
     } else {
       opts.body = data.body;
     }
   }
 
-  request(opts, function(error, response, body) {
-    if (error) {
-      cb(error);
-      return;
-    }
-
-    let status = response.statusCode;
-    if (status >= 200 && status < 300) {
-      cb(null, { status: status, body: body });
-    } else {
-      cb(null, { status: status });
-    }
-  });
+  return got(data.uri, opts);
 };
 
 
