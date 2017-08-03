@@ -1,15 +1,15 @@
 'use strict';
-const mmphandler = require('mmp-errors').handler;
+const mmphandler = require('mm-errors').handler;
 
-let Api = function() {};
+const Api = function() {
+  this.calls = [ 'call' ];
+};
 
-Api.prototype.unitInit = function(units) {
+Api.prototype.__init = function(units) {
   this.ctrl = units.require('controller');
 };
 
-Api.prototype.calls = [ 'call' ];
-
-Api.prototype.callSchema = function() {
+Api.prototype.call = function() {
   return {
     auth: {
       provider: 'user',
@@ -37,23 +37,22 @@ Api.prototype.callSchema = function() {
       },
       required: [ 'uri', 'method' ],
       additionalProperties: false
+    },
+
+    call: (auth, data, cb) => {
+      const response = mmphandler(cb);
+      this.ctrl.call(data)
+        .then(res => {
+          let status = res.statusCode;
+          if (status >= 200 && status < 300) {
+            response(null, { status: status, body: res.body });
+          } else {
+            response(null, { status: status });
+          }
+        })
+        .catch(err => response(null, { status: err.statusCode }))
     }
   }
 };
-
-Api.prototype.call = function(auth, data, cb) {
-  const response = mmphandler(cb);
-  this.ctrl.call(data)
-    .then(res => {
-      let status = res.statusCode;
-      if (status >= 200 && status < 300) {
-        response(null, { status: status, body: res.body });
-      } else {
-        response(null, { status: status });
-      }
-    })
-    .catch(err => response(null, { status: err.statusCode }))
-};
-
 
 module.exports = Api;

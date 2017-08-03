@@ -3,7 +3,7 @@ const got = require('got');
 
 const Controller = function() {};
 
-Controller.prototype.unitInit = function(units) {
+Controller.prototype.__init = function(units) {
   const settings = units.require('core.settings').proxy || {};
   this.followRedirect = settings.followRedirect;
   this.json = settings.json;
