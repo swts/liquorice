@@ -1,6 +1,6 @@
 {
   "name": "sweets-liquorice",
-  "version": "0.9.0",
+  "version": "0.11.0",
   "description": "Request proxy (cross domain requests)",
   "keywords": [
     "future",
